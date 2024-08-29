@@ -1,0 +1,64 @@
+<div class="container-fluid">
+
+    <div class="row" style="margin-bottom:20px;margin-top:20px;">
+        <div class="col-md-4 col-lg-4 col-sm-12">
+           
+            <!-- <div ngbDropdown>
+                <button type="button" placeholder=" please select source" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+                    {{selectedValue}} 
+                </button>
+                <div *ngFor="let arr of dropDownList['articles']" style="display:contents">
+                <ul  ngbDropdownMenu aria-labelledby="dropdownBasic1"  >
+                    <li (click)="getList(arr.source)" ngbDropdownItem>{{arr.source.name}}</li>
+                   
+                </ul>
+            </div>
+            </div> -->
+
+            <div ngbDropdown class="dropdown">
+                <button ngbDropdownToggle  type="button" class="btn btn-secondary dropdown-toggle" 
+                    id="dropdownMenuButton" aria-expanded="false">
+                    {{selectedValue}}
+                </button>
+                <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton" >
+                    <li *ngFor="let arr of dropDownList['articles']">
+                        <a class="ngbDropdownItem" href="#" style="all:unset">{{arr.source.name}}</a>
+                    </li>                                                              
+                </ul></div>
+        </div>
+
+        <div class="col-md-5 col-lg-5 col-sm-12">
+        	<form>
+				<div class="form-group">
+					<input type="text" placeholder="please select date" name="daterange" (change)="getDate($event)" ngxDaterangepickerMd [(ngModel)]="selected" class="form-control border border-primary" />
+				</div>
+			</form>
+        </div>
+        <div class="col-md-3 col-lg-3 col-sm-12">
+            <input class="form-control border border-primary" type="text" placeholder="search" [(ngModel)]="searchText">
+
+        </div>
+    </div>
+
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="card border-primary col-md-6 col-lg-3 col-sm-12"  *ngFor="let arr of listdata['articles'] | filter: searchText">
+            <div class="card-header">
+                <img class="card-img-top img-fluid" style="height:260px" [src]=arr.urlToImage alt="Card image cap">
+
+            </div>
+            <div class="card-body" style="height:200px">
+                <h5 class="card-title mx-auto" style="cursor:pointer" (click)="getDetails(arr)">Title : {{arr.title}}</h5>
+                <p class="card-text mx-auto"> Author : {{arr.author}}</p>
+            </div>
+                       
+                        <a class="card-footer" (click)="goToUrl(arr.url)" style="cursor: pointer;">Visit Site :  {{arr.url}}</a>
+               </div>
+    </div>
+</div>
+
+
+</div>

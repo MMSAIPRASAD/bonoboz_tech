@@ -1,0 +1,26 @@
+
+
+
+.dropdown-menu.show {
+    height:100px;
+    max-height:120px;
+    overflow: auto;
+    width:300px;
+    padding:10px
+}
+
+  
+.card {
+    background: #222;
+    color: rgba(250, 250, 250, 0.8);
+    margin-bottom: 2rem;
+    height:500px;
+  }
+
+
+  /* .btn1{
+    background:#fff;
+    color:black;
+    overflow:hidden;
+    height:60px
+  } */
